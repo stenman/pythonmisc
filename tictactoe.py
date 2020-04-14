@@ -49,7 +49,15 @@ def printBoard(title, board):
     print("|" + str(finalBoard[6]) + "|" + str(finalBoard[7]) + "|" + str(finalBoard[8]) + "|")
     print("-------\n")
 
+def resetGame():
+    global board, boardOrder, x, o
+    board = [None] * 9
+    boardOrder = [None] * 9
+    x = set()
+    o = set()
+    
 for i in range(3):
+    resetGame()
     oneGame()
     printBoard("End Board", board)
     printBoard("Order", boardOrder)
