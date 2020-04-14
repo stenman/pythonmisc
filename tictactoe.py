@@ -1,6 +1,10 @@
 import random
 
-## NOTE: Got weird results in IDLE because I couldn't figure out "one-line-printing" there. Run in shell...
+## Function:    Simulate TicTacToe games using two really stupid computer players.
+##              Yup. That's it!
+##
+## NOTE:    Got weird "one-line-printing" results in IDLE because I couldn't figure out how it works there.
+##          Run in some shell instead.
 
 board = [None] * 9
 boardOrder = [None] * 9
@@ -59,7 +63,8 @@ def resetGame():
     boardOrder = [None] * 9
     x = set()
     o = set()
-    
+
+print("\n")
 for i in range(100000):
     result = oneGame()
     if(result == 0):
@@ -71,13 +76,14 @@ for i in range(100000):
     xproc = (xwins / (xwins + owins + nowins)) * 100
     oproc = (owins / (xwins + owins + nowins)) * 100
     noproc = (nowins / (xwins + owins + nowins)) * 100
-    print('\rx wins: [%d%%]'%xproc, end="")
+    print("\r", end='', flush=True)
+    print('Games played: {0}       x wins: [{1:.1f}%]        o wins: [{2:.1f}%]        no one wins: [{3:.1f}%]'.format(i+1, xproc, oproc, noproc), end='', flush=True)
 ##    printBoard("End Board", board)
 ##    printBoard("Order", boardOrder)
 
 print("\n")
-print("Total games: " + str(xwins + owins + nowins))
-print("x wins total: " + str(xwins) + " (" + str(round(xproc, 1)) + "%)")
-print("o wins total: " + str(owins) + " (" + str(round(oproc, 1)) + "%)")
-print("no one wins total: " + str(nowins) + " (" + str(round(noproc, 1)) + "%)")
+print("Total games: \t\t" + str(xwins + owins + nowins))
+print("x wins total: \t\t" + str(xwins) + " (" + str(round(xproc, 1)) + "%)")
+print("o wins total: \t\t" + str(owins) + " (" + str(round(oproc, 1)) + "%)")
+print("no one wins total: \t" + str(nowins) + " (" + str(round(noproc, 1)) + "%)")
 
