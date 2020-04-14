@@ -76,6 +76,7 @@ for i in range(100000):
 ##    printBoard("Order", boardOrder)
 
 print("\n")
+print("Total games: " + str(xwins + owins + nowins))
 print("x wins total: " + str(xwins) + " (" + str(round(xproc, 1)) + "%)")
 print("o wins total: " + str(owins) + " (" + str(round(oproc, 1)) + "%)")
 print("no one wins total: " + str(nowins) + " (" + str(round(noproc, 1)) + "%)")
